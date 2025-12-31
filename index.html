@@ -7,14 +7,13 @@
     <style>
         body {
             margin: 0; padding: 0; font-family: 'Arial', sans-serif;
-            /* Fondo de noche de estrellas animado */
-            background: #000 url("https://www.icegif.com/wp-content/uploads/2023/02/icegif-95.gif") no-repeat center center fixed;
+            /* TU NUEVO GIF DE LLUVIA DE ESTRELLAS */
+            background: #000 url("https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExejNtZ2ZrM3AzOGduYW1qYmpwb2Vya2VyeTZpbGxxYWJ3bWk0dHR5MCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Fbox1ygIqnga5dLinz/giphy.gif") no-repeat center center fixed;
             background-size: cover;
             display: flex; justify-content: center; align-items: center;
             height: 100vh; overflow: hidden;
         }
 
-        /* CUADROS TRANSPARENTES Y CENTRADOS */
         .contenedor {
             background: rgba(255, 255, 255, 0.5); 
             backdrop-filter: blur(8px);
@@ -81,15 +80,12 @@
 
     <div id="album" class="contenedor">
         <div class="titulo-superior">TE AMO ❤️</div>
-        
         <div class="foto-marco" id="contenedor-media">
             <img src="foto1.jpg.jpeg" id="media-archivo">
         </div>
-
         <div class="caja-texto">
             <span id="texto-frase">Ese día en el Museo Larco, cuando me dijiste que sí, fue uno de los momentos más felices de mi vida...</span>
         </div>
-
         <button class="nav-btn" onclick="siguientePagina()">Siguiente ➔</button>
     </div>
 
@@ -97,12 +93,11 @@
 
     <script>
         let paginaActual = 0;
-        
         const contenido = [
             {img: "foto1.jpg.jpeg", txt: "Ese día en el Museo Larco, cuando me dijiste que sí, fue uno de los momentos más felices de mi vida. Desde entonces, no hay un solo día en el que no me sienta agradecido de tenerte a mi lado. Y cada vez que te veo, como en esa ocasión, con tu belleza y tu luz, siento que mi amor por ti no tiene límites", tipo: "img"},
             {img: "foto2.jpg.jpeg", txt: "Aún recuerdo nuestro primer viaje a Lunahuana como si fuera ayer. Ese fullday lleno de risas, adrenalina, canoping y canotaje, fue el principio de tantas aventuras juntos. Me hizo darme cuenta de lo increíble que es disfrutar cada segundo a tu lado, porque todo lo que hacemos juntos, se vuelve perfecto", tipo: "img"},
             {img: "foto3.jpg.jpeg", txt: "Siempre me va a gustar tomarme fotos contigo, porque además de guardar recuerdos a tu lado, tengo la suerte de estar junto a la mujer más hermosa que he visto en mi vida", tipo: "img"},
-            {img: "foto4.jpg.jpeg", txt: "Ese día en el Mariposario me llenó el corazón verte emocionarte viendo las mariposas, pero nada me hizo más feliz que verte sonreír. Tu felicidad siempre será lo que más alegría me da", tipo: "img"},
+            {img: "foto4.jpg.jpeg", txt: "Ese día en el Mariposario me llenó el corazón verte emocionarte viendo las mariposas, pero nada me hace más feliz que verte sonreír. Tu felicidad siempre será lo que más alegría me da", tipo: "img"},
             {img: "foto5.jpg.jpeg", txt: "Por ti lo doy todo sin pensarlo, porque mi corazón te pertenece por completo y no hay nada en este mundo que ame más que a ti", tipo: "img"},
             {img: "foto6.jpg.jpeg", txt: "Las flores son hermosas, pero ninguna se compara contigo; tú tienes una belleza que va más allá de lo que se ve, y con solo tu sonrisa logras iluminar todos mis días y llenar mi vida de alegría y amor", tipo: "img"},
             {img: "foto7.jpg.jpeg", txt: "Aunque estas fotos son de antes de conocernos, no puedo evitar imaginar que algún día compartiríamos momentos tan mágicos como este picnic, riendo juntos y disfrutando cada instante de la vida, porque desde que te encontré, todo a tu lado se siente perfecto", tipo: "img"},
@@ -130,14 +125,12 @@
 
             if (paginaActual < contenido.length) {
                 const info = contenido[paginaActual];
-                
                 if (info.tipo === "img") {
                     media.innerHTML = `<img src="${info.img}">`;
                 } else {
                     media.innerHTML = `<video src="${info.img}" autoplay loop muted playsinline></video>`;
                 }
                 texto.innerText = info.txt;
-                document.querySelector('.caja-texto').scrollTop = 0;
             } else {
                 alert("¡Te amo infinitamente mi reina! ❤️");
                 paginaActual = -1;
