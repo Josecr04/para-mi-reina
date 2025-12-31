@@ -7,28 +7,22 @@
     <style>
         body {
             margin: 0; padding: 0; font-family: 'Arial', sans-serif;
-            /* Fondo de estrellas */
             background: url("https://i.ibb.co/3ykXvBv/image-49fab2.png") no-repeat center center fixed;
             background-size: cover;
             display: flex; justify-content: center; align-items: center;
             height: 100vh; overflow: hidden;
         }
-
-        /* CUADROS TRANSPARENTES Y CENTRADOS */
         .contenedor {
             background: rgba(255, 255, 255, 0.5); 
             backdrop-filter: blur(8px);
             padding: 30px; border-radius: 15px;
             text-align: center; width: 85%; max-width: 450px;
-            color: #000; font-weight: bold; /* TEXTO NEGRO Y NEGRITA */
+            color: #000; font-weight: bold;
             border: 1px solid rgba(255, 255, 255, 0.3);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
             display: flex; flex-direction: column; align-items: center;
         }
-
         h1 { font-size: 20px; margin-bottom: 20px; line-height: 1.4; color: #000; }
-
-        /* BOTONES */
         .botones { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
         button {
             background: white; color: black; border: 2px solid #000;
@@ -36,11 +30,8 @@
             cursor: pointer; transition: 0.3s; font-size: 14px;
         }
         button:hover { background: #ff4757; color: white; border-color: #ff4757; }
-
-        /* DISEÑO DEL ÁLBUM */
         #album { display: none; }
         .titulo-superior { font-size: 24px; margin-bottom: 15px; color: #000; letter-spacing: 2px; }
-        
         .foto-marco { 
             width: 100%; max-width: 320px; aspect-ratio: 1/1;
             border: 3px solid #fff; border-radius: 10px; 
@@ -48,17 +39,14 @@
             background: #eee; box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
         .foto-marco img, .foto-marco video { width: 100%; height: 100%; object-fit: cover; }
-
         .caja-texto {
             background: rgba(255, 255, 255, 0.4);
             border: 2px solid #000; padding: 15px;
             border-radius: 10px; width: 90%; 
-            max-height: 150px; overflow-y: auto; /* Para frases largas */
-            font-size: 15px; line-height: 1.4;
+            max-height: 150px; overflow-y: auto;
+            font-size: 15px; line-height: 1.4; color: #000;
         }
-
         .nav-btn { margin-top: 15px; background: #000; color: #fff; width: 100%; border: none; }
-
         #segunda-pregunta { display: none; }
     </style>
 </head>
@@ -83,33 +71,31 @@
 
     <div id="album" class="contenedor">
         <div class="titulo-superior">TE AMO ❤️</div>
-        
         <div class="foto-marco" id="contenedor-media">
-            <img src="foto1.jpg" id="media-archivo">
+            <img src="foto1.jpg.jpeg" id="media-archivo">
         </div>
-
         <div class="caja-texto">
             <span id="texto-frase">Ese día en el Museo Larco, cuando me dijiste que sí, fue uno de los momentos más felices de mi vida...</span>
         </div>
-
         <button class="nav-btn" onclick="siguientePagina()">Siguiente ➔</button>
     </div>
 
-    <audio id="musica" src="musica.mp3" loop></audio>
+    <audio id="musica" src="musica.mp3.mp3" loop></audio>
 
     <script>
         let paginaActual = 0;
         
+        // Nombres corregidos según tu lista de archivos en GitHub
         const contenido = [
-            {img: "foto1.jpg", txt: "Ese día en el Museo Larco, cuando me dijiste que sí, fue uno de los momentos más felices de mi vida. Desde entonces, no hay un solo día en el que no me sienta agradecido de tenerte a mi lado. Y cada vez que te veo, como en esa ocasión, con tu belleza y tu luz, siento que mi amor por ti no tiene límites", tipo: "img"},
-            {img: "foto2.jpg", txt: "Aún recuerdo nuestro primer viaje a Lunahuana como si fuera ayer. Ese fullday lleno de risas, adrenalina, canoping y canotaje, fue el principio de tantas aventuras juntos. Me hizo darme cuenta de lo increíble que es disfrutar cada segundo a tu lado, porque todo lo que hacemos juntos, se vuelve perfecto", tipo: "img"},
-            {img: "foto3.jpg", txt: "Siempre me va a gustar tomarme fotos contigo, porque además de guardar recuerdos a tu lado, tengo la suerte de estar junto a la mujer más hermosa que he visto en mi vida", tipo: "img"},
-            {img: "foto4.jpg", txt: "Ese día en el Mariposario me llenó el corazón verte emocionarte viendo las mariposas, pero nada me hizo más feliz que verte sonreír. Tu felicidad siempre será lo que más alegría me da", tipo: "img"},
-            {img: "foto5.jpg", txt: "Por ti lo doy todo sin pensarlo, porque mi corazón te pertenece por completo y no hay nada en este mundo que ame más que a ti", tipo: "img"},
-            {img: "foto6.jpg", txt: "Las flores son hermosas, pero ninguna se compara contigo; tú tienes una belleza que va más allá de lo que se ve, y con solo tu sonrisa logras iluminar todos mis días y llenar mi vida de alegría y amor", tipo: "img"},
-            {img: "foto7.jpg", txt: "Aunque estas fotos son de antes de conocernos, no puedo evitar imaginar que algún día compartiríamos momentos tan mágicos como este picnic, riendo juntos y disfrutando cada instante de la vida, porque desde que te encontré, todo a tu lado se siente perfecto", tipo: "img"},
-            {img: "video1.mp4", txt: "Vernos así de felices en Madan Tusan me recuerda lo afortunado que soy de tenerte a mi lado. Cada risa, cada abrazo y cada momento contigo hacen que mi corazón se llene de alegría infinita", tipo: "vid"},
-            {img: "video2.mp4", txt: "Al ver todos estos momentos que hemos compartido este año, me doy cuenta de que cada sonrisa tuya, cada gesto, cada mirada, me hace enamorarme de ti una y otra vez. Admiro tu belleza, tu inteligencia, tu fuerza y tu dulzura, y siento que mi corazón no podría latir sin ti. No puedo imaginar un futuro donde no estés a mi lado, porque cada instante contigo convierte mi vida en algo perfecto, completo y lleno de amor. Gracias por ser tú, por hacerme feliz, y por enseñarme que el verdadero amor existe, y yo tengo la suerte de vivirlo contigo", tipo: "vid"}
+            {img: "foto1.jpg.jpeg", txt: "Ese día en el Museo Larco, cuando me dijiste que sí, fue uno de los momentos más felices de mi vida. Desde entonces, no hay un solo día en el que no me sienta agradecido de tenerte a mi lado. Y cada vez que te veo, como en esa ocasión, con tu belleza y tu luz, siento que mi amor por ti no tiene límites", tipo: "img"},
+            {img: "foto2.jpg.jpeg", txt: "Aún recuerdo nuestro primer viaje a Lunahuana como si fuera ayer. Ese fullday lleno de risas, adrenalina, canoping y canotaje, fue el principio de tantas aventuras juntos. Me hizo darme cuenta de lo increíble que es disfrutar cada segundo a tu lado, porque todo lo que hacemos juntos, se vuelve perfecto", tipo: "img"},
+            {img: "foto3.jpg.jpeg", txt: "Siempre me va a gustar tomarme fotos contigo, porque además de guardar recuerdos a tu lado, tengo la suerte de estar junto a la mujer más hermosa que he visto en mi vida", tipo: "img"},
+            {img: "foto4.jpg.jpeg", txt: "Ese día en el Mariposario me llenó el corazón verte emocionarte viendo las mariposas, pero nada me hizo más feliz que verte sonreír. Tu felicidad siempre será lo que más alegría me da", tipo: "img"},
+            {img: "foto5.jpg.jpeg", txt: "Por ti lo doy todo sin pensarlo, porque mi corazón te pertenece por completo y no hay nada en este mundo que ame más que a ti", tipo: "img"},
+            {img: "foto6.jpg.jpeg", txt: "Las flores son hermosas, pero ninguna se compara contigo; tú tienes una belleza que va más allá de lo que se ve, y con solo tu sonrisa logras iluminar todos mis días y llenar mi vida de alegría y amor", tipo: "img"},
+            {img: "foto7.jpg.jpeg", txt: "Aunque estas fotos son de antes de conocernos, no puedo evitar imaginar que algún día compartiríamos momentos tan mágicos como este picnic, riendo juntos y disfrutando cada instante de la vida, porque desde que te encontré, todo a tu lado se siente perfecto", tipo: "img"},
+            {img: "video1.mp4.mp4", txt: "Vernos así de felices en Madan Tusan me recuerda lo afortunado que soy de tenerte a mi lado. Cada risa, cada abrazo y cada momento contigo hacen que mi corazón se llene de alegría infinita", tipo: "vid"},
+            {img: "video2.mp4.mp4", txt: "Al ver todos estos momentos que hemos compartido este año, me doy cuenta de que cada sonrisa tuya, cada gesto, cada mirada, me hace enamorarme de ti una y otra vez. Admiro tu belleza, tu inteligencia, tu fuerza y tu dulzura, y siento que mi corazón no podría latir sin ti. No puedo imaginar un futuro donde no estés a mi lado, porque cada instante contigo convierte mi vida en algo perfecto, completo y lleno de amor. Gracias por ser tú, por hacerme feliz, y por enseñarme que el verdadero amor existe, y yo tengo la suerte de vivirlo contigo", tipo: "vid"}
         ];
 
         function irNegativa() {
@@ -122,7 +108,7 @@
             document.getElementById('segunda-pregunta').style.display = 'none';
             document.getElementById('album').style.display = 'flex';
             const musica = document.getElementById('musica');
-            musica.play().catch(e => console.log("Esperando interacción para audio"));
+            musica.play().catch(e => console.log("Audio ready"));
         }
 
         function siguientePagina() {
@@ -132,16 +118,14 @@
 
             if (paginaActual < contenido.length) {
                 const info = contenido[paginaActual];
-                
                 if (info.tipo === "img") {
                     media.innerHTML = `<img src="${info.img}">`;
                 } else {
                     media.innerHTML = `<video src="${info.img}" autoplay loop muted playsinline></video>`;
                 }
                 texto.innerText = info.txt;
-                document.querySelector('.caja-texto').scrollTop = 0; // Reiniciar scroll
             } else {
-                alert("¡Te amo infinitamente mi reina! ❤️ Gracias por estar en mi vida.");
+                alert("¡Te amo infinitamente mi reina! ❤️");
                 paginaActual = -1;
                 siguientePagina();
             }
